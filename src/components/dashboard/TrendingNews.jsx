@@ -16,7 +16,7 @@ const TrendingNews = () => {
 
   return (
     <div>
-      <h2 className="text-lg mb-3">Trending News</h2>
+      <h2 className="text-xl font-semibold mb-4"/>
 
       <div className="grid grid-cols-2 gap-4">
         {dummyNews.map((news, index) => (

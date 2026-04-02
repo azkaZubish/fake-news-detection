@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
-    <div className="flex">
+    <div className="flex min-h-screen bg-gradient-to-br from-white via-green-50 to-gray-100">
       <Sidebar />
 
       <div className="flex-1">

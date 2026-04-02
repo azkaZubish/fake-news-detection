@@ -1,6 +1,9 @@
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center px-6 py-4 bg-white shadow-sm">
+    <div className="flex justify-between items-center px-6 py-4 bg-white/80 backdrop-blur-md border-b">
+      <div className="font-semibold text-primary text-lg">
+        TruthLens AI
+      </div>
       <input
         type="text"
         placeholder="Search news..."

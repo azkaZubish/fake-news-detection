@@ -3,10 +3,18 @@ import DetectionHistory from "../components/dashboard/DetectionHistory";
 
 const Dashboard = () => {
   return (
-    <div className="space-y-6">
-      <TrendingNews />
-      <DetectionHistory />
-    </div>
+    <>
+    <div className="animate-fadeIn">
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold">Dashboard</h1>
+        <p className="text-gray-500">Overview of news insights</p>
+      </div>
+      <div className="grid md:grid-cols-2 gap-6">
+        <TrendingNews />
+        <DetectionHistory />
+      </div>
+      </div>
+    </>
   );
 };
 
