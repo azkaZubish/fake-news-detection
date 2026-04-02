@@ -4,12 +4,10 @@ const Navbar = () => {
   return (
     <div className="flex justify-between items-center px-6 py-4 bg-white border-b shadow-sm">
 
-      {/* LOGO */}
       <h1 className="text-xl font-semibold text-primary">
-        VerifyNews
+        TruthLens 
       </h1>
 
-      {/* NAV LINKS */}
       <div className="flex items-center gap-6 text-gray-700 font-medium">
 
         <Link
@@ -35,7 +33,6 @@ const Navbar = () => {
 
       </div>
 
-      {/* RIGHT SIDE */}
       <div className="flex items-center gap-4">
         <input
           placeholder="Search articles..."

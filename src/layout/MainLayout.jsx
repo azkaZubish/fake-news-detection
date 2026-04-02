@@ -1,3 +1,4 @@
+import Footer from "../components/layout/Footer";
 import Navbar from "../components/layout/Navbar";
 import { Outlet } from "react-router-dom";
 
@@ -11,6 +12,8 @@ const MainLayout = () => {
         <div className="p-6">
           <Outlet />
         </div>
+
+        <Footer/>
       </div>
     </div>
   );

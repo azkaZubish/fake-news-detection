@@ -6,18 +6,30 @@ const DetectionHistory = ({ history = [] }) => {
       </h2>
 
       {history.length === 0 ? (
-        <p className="text-gray-400 italic text-center mt-4">
-          No history yet — start analyzing news 🚀
+        <p className="text-gray-400 text-center mt-4">
+          No history yet
         </p>
       ) : (
         history.map((item, index) => (
-          <div className="flex justify-between items-center bg-gray-50 p-3 rounded mb-2">
-            <span className="text-sm">{item.text}</span>
+          <div
+            key={index}
+            className="flex justify-between items-start bg-gray-50 p-4 rounded-lg mb-3 border"
+          >
+            <div className="flex-1">
+              <p className="text-sm font-medium text-gray-700 line-clamp-2">
+                {item.text}
+              </p>
+              <p className="text-xs text-gray-400 mt-1">
+                {item.date}
+              </p>
+            </div>
 
-            <span className={`text-xs px-2 py-1 rounded ${item.result === "Fake"
-                ? "bg-red-100 text-danger"
-                : "bg-green-100 text-primary"
-              }`}>
+            <span
+              className={`text-xs px-3 py-1 rounded-full ml-4 ${item.result === "Fake News"
+                  ? "bg-red-100 text-red-600"
+                  : "bg-green-100 text-green-600"
+                }`}
+            >
               {item.result}
             </span>
           </div>

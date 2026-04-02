@@ -20,7 +20,7 @@ const AnalyzeNews = () => {
             Detect whether news is real or fake using AI
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-8 items-start">
+        <div className="max-w-3xl mx-auto space-y-6">
 
           <div className="space-y-6">
             <TextInputBox
@@ -29,12 +29,43 @@ const AnalyzeNews = () => {
               onAnalyze={() => detectNews(text)}
             />
 
-            <ImageUploadBox onUpload={(file) => console.log(file)} />
           </div>
 
           <div className="space-y-4">
-            <AnimatedMeter result={result} loading={loading} />
-            <AnalysisPanel result={result} />
+
+            {!result && !loading && (
+              <div className="bg-white p-8 rounded-xl shadow-sm border text-center animate-fadeIn">
+
+                <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-green-100 text-primary text-2xl">
+                  !
+                </div>
+
+                <h2 className="text-lg font-semibold text-gray-700">
+                  No analysis yet
+                </h2>
+
+                <p className="text-gray-500 mt-2">
+                  Paste the content and click
+                  <span className="text-primary font-medium"> Analyze</span> to see results
+                </p>
+
+              </div>
+            )}
+
+            {loading && (
+              <div className="bg-white p-8 rounded-xl shadow-sm border text-center">
+                <p className="text-gray-500 animate-pulse">
+                  Analyzing news...
+                </p>
+              </div>
+            )}
+
+            {result && (
+              <>
+                <AnimatedMeter result={result} loading={loading} />
+              </>
+            )}
+
           </div>
 
         </div>

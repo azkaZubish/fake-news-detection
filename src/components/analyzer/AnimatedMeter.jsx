@@ -3,7 +3,7 @@ const AnimatedMeter = ({ result, loading }) => {
   if (!result) return <p>No result yet</p>;
 
   return (
-    // 
+
     <div className="bg-white shadow-lg p-6 rounded-xl border-t-4 border-primary 
 animate-fadeIn">
       <h2

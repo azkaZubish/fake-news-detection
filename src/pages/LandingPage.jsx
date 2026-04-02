@@ -7,10 +7,8 @@ const LandingPage = () => {
         <div className="min-h-screen bg-white text-gray-800">
 
 
-            {/* 🔥 HERO SECTION */}
             <section className="grid md:grid-cols-2 gap-10 items-center px-10 py-20">
 
-                {/* LEFT */}
                 <div className="space-y-6">
                     <h2 className="text-4xl font-bold leading-tight">
                         Detect Fake News in Seconds
@@ -29,16 +27,9 @@ const LandingPage = () => {
                             Analyze Now
                         </button>
 
-                        <button
-                            onClick={() => navigate("/")}
-                            className="px-6 py-3 border rounded-lg hover:bg-gray-100 transition"
-                        >
-                            Learn More
-                        </button>
                     </div>
                 </div>
 
-                {/* RIGHT */}
                 <div className="bg-gray-100 p-8 rounded-xl shadow-sm">
                     <p className="text-sm text-gray-500 mb-2">Example Output</p>
 
@@ -54,11 +45,10 @@ const LandingPage = () => {
 
             </section>
 
-            {/* 🔥 FEATURES SECTION */}
             <section className="px-10 py-20 bg-gray-50">
 
                 <h2 className="text-3xl font-bold text-center mb-12">
-                    Why Use TruthLens AI?
+                    Why Use TruthLens?
                 </h2>
 
                 <div className="grid md:grid-cols-3 gap-8">
@@ -93,7 +83,6 @@ const LandingPage = () => {
                 </div>
             </section>
 
-            {/* 🔥 CTA SECTION */}
             <section className="px-10 py-20 text-center">
 
                 <h2 className="text-3xl font-bold mb-4">
@@ -112,11 +101,6 @@ const LandingPage = () => {
                 </button>
 
             </section>
-
-            {/* 🔥 FOOTER */}
-            <footer className="text-center py-6 border-t text-gray-500">
-                © 2026 TruthLens AI • Built for Fake News Detection
-            </footer>
 
         </div>
     );
