@@ -1,11 +1,9 @@
-import Sidebar from "../components/layout/Sidebar";
 import Navbar from "../components/layout/Navbar";
 import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-white via-green-50 to-gray-100">
-      <Sidebar />
+    <div className="flex min-h-screen bg-gray-100 text-gray-800">
 
       <div className="flex-1">
         <Navbar />
