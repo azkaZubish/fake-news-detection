@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import StatsGrid from "../components/dashboard/StatsGrid";
 import DetectionHistory from "../components/dashboard/DetectionHistory";
 
-const Dashboard = () => {
+const DashBoard = () => {
   const [history, setHistory] = useState([]);
 
   const [stats, setStats] = useState({
@@ -53,4 +53,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default DashBoard;
