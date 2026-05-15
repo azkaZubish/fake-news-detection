@@ -7,12 +7,15 @@ const API = axios.create({
 export const analyzeNews = async (text) => {
   try {
     const response = await API.post("/predict", {
-      text: text,
+      text,
     });
 
     return response.data;
   } catch (error) {
-    console.error("API Error:", error);
-    return null;
+    console.error("Backend not connected yet");
+    
+    return {
+      prediction: "Backend not deployed yet",
+    };
   }
 };
