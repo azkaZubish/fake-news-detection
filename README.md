@@ -1,16 +1,55 @@
-# React + Vite
+##Fake News Detection [Live website](https://fake-news-detection-rosy-seven.vercel.app/)
+It is a modern web-based fake news detection platform that analyzes news content and predicts whether it is Real, Fake, or Uncertain using a Machine Learning model powered by Natural Language Processing (NLP).
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The project combines a clean and responsive frontend with a Flask-based ML backend to create an interactive and user-friendly news verification experience.
 
-Currently, two official plugins are available:
+NOTE:This repository contains only the Frontend code of the website.To see the backend repository, [visit]().
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#Features
+-AI-powered fake news detection
+-Confidence score prediction
+-Dashboard with live detection metrics
+-Persistent detection history using Local Storage
+-Modern responsive UI built with React + Tailwind CSS
+-Fast API communication using Flask and Axios
+-Scalable architecture for future ML upgrades
 
-## React Compiler
+#How it works
+-User enters a news article or headline
+-Frontend sends the content to the Flask backend
+-Text is cleaned and vectorized using TF-IDF
+-Machine Learning model predicts the result
+-Backend returns:
+  -Prediction
+  -Confidence score
+  -Keyword analysis
+-Frontend visualizes the results dynamically
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+#Tech Stack
+#Frontend
+-React
+-Tailwind CSS
+-Vite
+-Axios
+-React Router
+#Backend
+-Flask
+-scikit-learn
+-NumPy
+#Machine Learning
+-Logistic Regression
+-TF-IDF Vectorization
+-NLP-based text preprocessing
 
-## Expanding the ESLint configuration
+#Frontend Setup
+#Install Dependencies
+```bash
+  npm install
+```
+#Start Frontend
+```bash
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+#Frontend runs on:
+http://localhost:5173
