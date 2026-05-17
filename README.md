@@ -4,7 +4,7 @@ It is a modern web-based fake news detection platform that analyzes news content
 
 The project combines a clean and responsive frontend with a Flask-based ML backend to create an interactive and user-friendly news verification experience.
 
-NOTE:This repository contains only the Frontend code of the website.To see the backend repository, [visit]().
+>[!NOTE]:This repository contains only the Frontend code of the website.To view the backend repository, [visit](https://github.com/azkaZubish/fake_news_backend).
 
 ## Features
 - AI-powered fake news detection
@@ -55,3 +55,17 @@ npm run dev
 ```bash
 http://localhost:5173
 ```
+## Future Improvements
+- Real-time news API integration
+- URL-based article analysis
+- OCR image news detection
+- Advanced analytics & charts
+- User authentication
+- Cloud deployment
+- Database integration
+
+## License
+This project is developed for educational and academic purposes.
+
+## Acknowledgements
+Special thanks to the open-source community and libraries that made this project possible.
