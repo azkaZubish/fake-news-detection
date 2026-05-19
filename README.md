@@ -1,6 +1,7 @@
 # Fake News Detection [Live website](https://fake-news-detection-rosy-seven.vercel.app/)
 
-It is a modern web-based fake news detection platform that analyzes news content and predicts whether it is Real, Fake, or Uncertain using a Machine Learning model powered by Natural Language Processing (NLP).
+Built an AI-powered fake news detection system that automates news credibility analysis using machine learning and real-time prediction workflows.
+It is a modern web-based platform that analyzes news content and predicts whether it is Real, Fake, or Uncertain using Natural Language Processing (NLP).
 
 The project combines a clean and responsive frontend with a Flask-based ML backend to create an interactive and user-friendly news verification experience.
 
