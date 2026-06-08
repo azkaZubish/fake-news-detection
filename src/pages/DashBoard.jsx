@@ -13,20 +13,26 @@ const DashBoard = () => {
   });
 
   useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem("history")) || [];
-    setHistory(stored);
+     fetch('/history')
+      .then(res => res.json())
+      .then(data => setHistory(data));
+  }, [])
 
-    const total = stored.length;
-    const real = stored.filter(
-      (item) => item.result === "Real News"
+  useEffect(() => {
+    // const stored = JSON.parse(localStorage.getItem("history")) || [];
+    // setHistory(stored);
+
+    const total = history.length;
+    const real = history.filter(
+      (item) => item.prediction === "Real News"
     ).length;
 
-    const fake = stored.filter(
-      (item) => item.result === "Fake News"
+    const fake = history.filter(
+      (item) => item.prediction === "Fake News"
     ).length;
 
-    const uncertain = stored.filter(
-      (item) => item.result === "Uncertain News"
+    const uncertain = history.filter(
+      (item) => item.prediction === "Uncertain News"
     ).length;
 
     setStats({ total, real, fake, uncertain });
