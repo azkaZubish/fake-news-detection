@@ -3,6 +3,7 @@ import MainLayout from "./layout/MainLayout";
 import DashBoard from "./pages/DashBoard";
 import AnalyzeNews from "./pages/AnalyzeNews";
 import LandingPage from "./pages/LandingPage";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           <Route path="/dashboard" element={<DashBoard />} />
           <Route path="/analyze" element={<AnalyzeNews />} />
         </Route>
-
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
