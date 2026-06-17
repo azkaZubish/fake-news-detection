@@ -1,15 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
     const navigate = useNavigate()
     return (
         <div className="animate-fadeIn">
             <div className="min-h-screen bg-slate-100 flex items-center justify-center p-4 md:p-6">
                 <div className="w-full max-w-6xl bg-gradient-to-br from-[#8ed8a9] to-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row">
-                    <div className="w-full md:w-1/2 p-6 sm:p-8 md:p-12 flex flex-col  justify-center">
+                    <div className="w-full md:w-1/2 p-6 sm:p-8 md:p-12 flex flex-col justify-center">
                         <div className="flex flex-col">
-                            <div className="mb-6 flex-col">
+                            <div className="mb-4 flex-col">
                                 <div className="border border-gray-800 rounded-full p-4 w-fit">
                                     <h1 className="text-md text-slate-800">
                                         Truth Lens
@@ -18,22 +18,31 @@ const Login = () => {
 
                             </div>
 
-                            <form className="space-y-5 flex-col py-4 px-12 md:px-16 md:py-8 sm:px-14 sm:py-6">
+                            <form className="space-y-3 flex-col py-4 px-12 md:px-16 md:py-8 sm:px-14 sm:py-6">
                                 <div className="justify-content items-center ">
                                     <p className="text-slate-800 text-2xl text-center">
-                                        Login
+                                        Register
                                     </p>
-                                    <p className="text-slate-500 text-sm mt-2 text-center">
-                                        to continue analyzing news articles.
-                                    </p>
+                        
                                 </div>
-                                <div>
+                                <div className="">
                                     <label className="block text-xs mb-2 text-slate-600 pl-4">
                                         Username
                                     </label>
 
                                     <input
                                         type="text"
+                                        placeholder="Enter username"
+                                        className="w-full px-4 py-3 rounded-full border border-slate-300 outline-none focus:border-blue-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-xs mb-2 text-slate-600 pl-4">
+                                        Email
+                                    </label>
+
+                                    <input
+                                        type="email"
                                         placeholder="Enter username"
                                         className="w-full px-4 py-3 rounded-full border border-slate-300 outline-none focus:border-blue-500"
                                     />
@@ -55,17 +64,17 @@ const Login = () => {
                                     type="submit"
                                     className="w-full py-3 bg-green-600 text-white rounded-full font-medium hover:bg-green-700 transition"
                                 >
-                                    Login
+                                    Register
                                 </button>
                             </form>
 
                             <p className="mt-8 text-sm text-slate-500 flex-col">
-                                Don't have an account?{" "}
+                                Already have an account?{" "}
                                 <Link
-                                    to="/register"
+                                    to="/login"
                                     className="text-blue-600 font-medium"
                                 >
-                                    Register
+                                    Login
                                 </Link>
                             </p>
                         </div>
@@ -104,4 +113,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Register;

@@ -11,6 +11,10 @@ h1, h2, h3 {
   font-family: 'Poppins', sans-serif;
 }
 
+html {
+  scrollbar-gutter: stable both-edges;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
