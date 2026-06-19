@@ -13,7 +13,7 @@ const DashBoard = () => {
   });
 
   useEffect(() => {
-     fetch('/history')
+     fetch('${import.meta.env.VITE_API_URL}/history')
       .then(res => res.json())
       .then(data => setHistory(data));
   }, [])

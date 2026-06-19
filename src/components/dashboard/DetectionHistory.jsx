@@ -17,20 +17,20 @@ const DetectionHistory = ({ history = [] }) => {
           >
             <div className="flex-1">
               <p className="text-sm font-medium text-gray-700 line-clamp-2">
-                {item.text}
+                {item.news_text}
               </p>
-              <p className="text-xs text-gray-400 mt-1">
+              {/* <p className="text-xs text-gray-400 mt-1">
                 {item.date}
-              </p>
+              </p> */}
             </div>
 
             <span
-              className={`text-xs px-3 py-1 rounded-full ml-4 ${item.result === "Fake News"
+              className={`text-xs px-3 py-1 rounded-full ml-4 ${item.prediction === "Fake News"
                   ? "bg-red-100 text-red-600"
                   : "bg-green-100 text-green-600"
                 }`}
             >
-              {item.result}
+              {item.prediction}
             </span>
           </div>
         ))

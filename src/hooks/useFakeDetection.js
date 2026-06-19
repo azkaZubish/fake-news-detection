@@ -13,17 +13,17 @@ const useFakeDetection = () => {
     setResult(data);
     setLoading(false);
 
-    const history = JSON.parse(localStorage.getItem("history")) || [];
+    // const history = JSON.parse(localStorage.getItem("history")) || [];
 
-    const newEntry = {
-      text,
-      result: data.prediction,
-      date: new Date().toLocaleString(),
-    };
+    // const newEntry = {
+    //   text,
+    //   result: data.prediction,
+    //   date: new Date().toLocaleString(),
+    // };
 
-    const updatedHistory = [newEntry, ...history].slice(0, 10);
+    // const updatedHistory = [newEntry, ...history].slice(0, 10);
 
-    localStorage.setItem("history", JSON.stringify(updatedHistory));
+    // localStorage.setItem("history", JSON.stringify(updatedHistory));
   };
 
   return { result, loading, detectNews };

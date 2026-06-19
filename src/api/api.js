@@ -13,10 +13,10 @@ export const analyzeNews = async (text) => {
 
     return response.data;
   } catch (error) {
-    console.error("Backend not connected yet");
+    console.error(error);
     
     return {
-      prediction: "Backend not deployed yet",
+      prediction: "Not able to analyze news",
     };
   }
 };
