@@ -11,6 +11,8 @@ export const analyzeNews = async (text) => {
       text,
     });
 
+    console.log(response.data)
+
     return response.data;
   } catch (error) {
     console.error(error);
