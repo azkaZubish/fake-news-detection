@@ -13,10 +13,12 @@ const DashBoard = () => {
   });
 
   useEffect(() => {
-     fetch('${import.meta.env.VITE_API_URL}/history')
+     fetch(`${import.meta.env.VITE_API_URL}/history`)
       .then(res => res.json())
       .then(data => setHistory(data));
   }, [])
+
+  console.log(history)
 
   useEffect(() => {
     // const stored = JSON.parse(localStorage.getItem("history")) || [];
@@ -37,7 +39,7 @@ const DashBoard = () => {
 
     setStats({ total, real, fake, uncertain });
 
-  }, []);
+  }, [history]);
 
   return (
     <div className="animate-fadeIn">
