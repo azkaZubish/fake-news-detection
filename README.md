@@ -5,7 +5,7 @@ It is a modern web-based platform that analyzes news content and predicts whethe
 
 The project combines a clean and responsive frontend with a Flask-based ML backend to create an interactive and user-friendly news verification experience.
 
-> NOTE:This repository contains only the Frontend code of the website.To view the backend repository, [visit](https://github.com/azkaZubish/fake_news_backend).
+> NOTE:This repository contains only the Frontend code of the website.To view the backend repository, [visit](https://github.com/azkaZubish/fake-news-backend).
 
 ## Features
 - AI-powered fake news detection
@@ -42,6 +42,8 @@ The project combines a clean and responsive frontend with a Flask-based ML backe
 - Logistic Regression
 - TF-IDF Vectorization
 - NLP-based text preprocessing
+### Database
+- MongoDB Atlas
 
 ## Frontend Setup
 ### Install Dependencies
