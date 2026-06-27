@@ -13,8 +13,8 @@ const Register = () => {
     });
 
     const handleChange = (e) => {
-        const {name, value} = e.target
-        
+        const { name, value } = e.target
+
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
@@ -24,21 +24,40 @@ const Register = () => {
     const validateForm = () => {
 
         const newErrors = {};
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+        const usernameRegex = /^[a-zA-Z0-9_]+$/;
 
+        //username validate
         if (!formData.username.trim()) {
             newErrors.username = 'Username is required';
+        } else if (formData.username.trim().length < 3) {
+            newErrors.username = "Username must be at least 3 characters";
+        } else if (!usernameRegex.test(formData.username.trim())) {
+            newErrors.username = "Username can only contain letters, numbers and underscores";
         }
 
+        //email validate
         if (!formData.email.trim()) {
             newErrors.email = 'Email is required';
+        }else if (!emailRegex.test(formData.email.trim())) {
+            newErrors.email = "Invalid email";
         }
 
+        //password validate
         if (!formData.password.trim()) {
             newErrors.password = 'Password is required';
+        }else if (formData.password.trim().length < 8) {
+            newErrors.password = "Password must be at least 8 characters";
+        }else  if (!passwordRegex.test(formData.password.trim())) {
+            newErrors.password = "Password must contain uppercase, lowercase, number and special character";
         }
 
-        if (!formData.confirmPassword.trim()) {
+        //confirm password validate
+        if (formData.password.trim() && !formData.confirmPassword.trim()) {
             newErrors.confirmPassword = 'Confirm Password is required';
+        }else if (formData.password.trim() !== formData.confirmPassword.trim()) {
+            newErrors.confirmPassword = "Passwords do not match";
         }
 
         setErrors(newErrors);
@@ -50,7 +69,7 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if(!validateForm()){
+        if (!validateForm()) {
             return;
         }
     }
@@ -101,7 +120,7 @@ const Register = () => {
 
                                     <input
                                         type="email"
-                                        placeholder="Enter username"
+                                        placeholder="Enter email"
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
@@ -130,14 +149,14 @@ const Register = () => {
                                     )}
                                 </div>
 
-                                 <div>
+                                {formData.password && <div>
                                     <label className="block text-xs mb-2 text-slate-600 pl-4">
                                         Confirm Password
                                     </label>
 
                                     <input
                                         type="password"
-                                        placeholder="Confirm password"
+                                        placeholder="Re-enter password"
                                         name="confirmPassword"
                                         value={formData.confirmPassword}
                                         onChange={handleChange}
@@ -146,7 +165,7 @@ const Register = () => {
                                     {errors.confirmPassword && (
                                         <p className="block text-xs mt-2 text-red-600 pl-4">{errors.confirmPassword}</p>
                                     )}
-                                </div>
+                                </div>}
 
                                 <button
                                     type="submit"
