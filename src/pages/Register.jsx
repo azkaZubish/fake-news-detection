@@ -1,8 +1,59 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Register = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [errors, setErrors] = useState({});
+    const [formData, setFormData] = useState({
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+    });
+
+    const handleChange = (e) => {
+        const {name, value} = e.target
+        
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    }
+
+    const validateForm = () => {
+
+        const newErrors = {};
+
+        if (!formData.username.trim()) {
+            newErrors.username = 'Username is required';
+        }
+
+        if (!formData.email.trim()) {
+            newErrors.email = 'Email is required';
+        }
+
+        if (!formData.password.trim()) {
+            newErrors.password = 'Password is required';
+        }
+
+        if (!formData.confirmPassword.trim()) {
+            newErrors.confirmPassword = 'Confirm Password is required';
+        }
+
+        setErrors(newErrors);
+
+        return Object.keys(newErrors).length === 0;
+
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if(!validateForm()){
+            return;
+        }
+    }
     return (
         <div className="animate-fadeIn">
             <div className="min-h-screen bg-slate-100 flex items-center justify-center p-4 md:p-6">
@@ -18,12 +69,12 @@ const Register = () => {
 
                             </div>
 
-                            <form className="space-y-3 flex-col py-4 px-12 md:px-16 md:py-8 sm:px-14 sm:py-6">
+                            <form onSubmit={handleSubmit} className="space-y-3 flex-col py-4 px-12 md:px-16 md:py-8 sm:px-14 sm:py-6">
                                 <div className="justify-content items-center ">
                                     <p className="text-slate-800 text-2xl text-center">
                                         Register
                                     </p>
-                        
+
                                 </div>
                                 <div className="">
                                     <label className="block text-xs mb-2 text-slate-600 pl-4">
@@ -32,9 +83,16 @@ const Register = () => {
 
                                     <input
                                         type="text"
+                                        name="username"
+                                        value={formData.username}
+                                        onChange={handleChange}
                                         placeholder="Enter username"
                                         className="w-full px-4 py-3 rounded-full border border-slate-300 outline-none focus:border-blue-500"
                                     />
+
+                                    {errors.username && (
+                                        <p className="block text-xs mt-2 text-red-600 pl-4">{errors.username}</p>
+                                    )}
                                 </div>
                                 <div>
                                     <label className="block text-xs mb-2 text-slate-600 pl-4">
@@ -44,8 +102,14 @@ const Register = () => {
                                     <input
                                         type="email"
                                         placeholder="Enter username"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
                                         className="w-full px-4 py-3 rounded-full border border-slate-300 outline-none focus:border-blue-500"
                                     />
+                                    {errors.email && (
+                                        <p className="block text-xs mt-2 text-red-600 pl-4">{errors.email}</p>
+                                    )}
                                 </div>
 
                                 <div>
@@ -56,8 +120,32 @@ const Register = () => {
                                     <input
                                         type="password"
                                         placeholder="Enter password"
+                                        name="password"
+                                        value={formData.password}
+                                        onChange={handleChange}
                                         className="w-full px-4 py-3 rounded-full border border-slate-300 outline-none focus:border-blue-500"
                                     />
+                                    {errors.password && (
+                                        <p className="block text-xs mt-2 text-red-600 pl-4">{errors.password}</p>
+                                    )}
+                                </div>
+
+                                 <div>
+                                    <label className="block text-xs mb-2 text-slate-600 pl-4">
+                                        Confirm Password
+                                    </label>
+
+                                    <input
+                                        type="password"
+                                        placeholder="Confirm password"
+                                        name="confirmPassword"
+                                        value={formData.confirmPassword}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-3 rounded-full border border-slate-300 outline-none focus:border-blue-500"
+                                    />
+                                    {errors.confirmPassword && (
+                                        <p className="block text-xs mt-2 text-red-600 pl-4">{errors.confirmPassword}</p>
+                                    )}
                                 </div>
 
                                 <button
