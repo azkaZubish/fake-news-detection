@@ -27,36 +27,40 @@ const Register = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
         const usernameRegex = /^[a-zA-Z0-9_]+$/;
+        const email = formData.email.trim();
+        const username = formData.username.trim();
+        const password = formData.password.trim();
+        const confirmPassword = formData.confirmPassword.trim();
 
         //username validate
-        if (!formData.username.trim()) {
+        if (!username) {
             newErrors.username = 'Username is required';
-        } else if (formData.username.trim().length < 3) {
+        } else if (username.length < 3) {
             newErrors.username = "Username must be at least 3 characters";
-        } else if (!usernameRegex.test(formData.username.trim())) {
+        } else if (!usernameRegex.test(username)) {
             newErrors.username = "Username can only contain letters, numbers and underscores";
         }
 
         //email validate
-        if (!formData.email.trim()) {
+        if (!email) {
             newErrors.email = 'Email is required';
-        }else if (!emailRegex.test(formData.email.trim())) {
+        }else if (!emailRegex.test(email)) {
             newErrors.email = "Invalid email";
         }
 
         //password validate
-        if (!formData.password.trim()) {
+        if (!password) {
             newErrors.password = 'Password is required';
-        }else if (formData.password.trim().length < 8) {
+        }else if (password.length < 8) {
             newErrors.password = "Password must be at least 8 characters";
-        }else  if (!passwordRegex.test(formData.password.trim())) {
+        }else  if (!passwordRegex.test(password)) {
             newErrors.password = "Password must contain uppercase, lowercase, number and special character";
         }
 
         //confirm password validate
-        if (formData.password.trim() && !formData.confirmPassword.trim()) {
+        if (password && !confirmPassword) {
             newErrors.confirmPassword = 'Confirm Password is required';
-        }else if (formData.password.trim() !== formData.confirmPassword.trim()) {
+        }else if (formData.password.trim() !== confirmPassword) {
             newErrors.confirmPassword = "Passwords do not match";
         }
 
@@ -66,13 +70,29 @@ const Register = () => {
 
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        formData.email
+        const userData = {
+            username : formData.username.trim(),
+            email: formData.email.trim(),
+            password: formData.password,
+        }
 
         if (!validateForm()) {
             return;
         }
+        const response = await fetch(`${import.meta.env.VITE_API_URL}`,{
+            method: "POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(userData),
+        })
+        const data = await response.json()
+        console.log(data)
     }
+    
     return (
         <div className="animate-fadeIn">
             <div className="min-h-screen bg-slate-100 flex items-center justify-center p-4 md:p-6">
